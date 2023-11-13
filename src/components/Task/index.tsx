@@ -8,7 +8,7 @@ export function Task(){
 
             </button>
             <p>Integer urna sdjncd dbjdbvh</p>
-            <button className='styles.deleteButton'>
+            <button className={styles.deleteButton}>
                 <TbTrash size={20}/>
             </button>
 
