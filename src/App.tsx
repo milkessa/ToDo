@@ -1,10 +1,12 @@
-
-import { Header } from "./components/headers"
+import { Header } from "./components/headers";
+import { Tasks } from "./components/Tasks";
 function App() {
-
   return (
-    <Header />
-  )
+    <div>
+      <Header />
+      <Tasks />
+    </div>
+  );
 }
 
-export default App
+export default App;

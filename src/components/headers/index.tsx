@@ -3,7 +3,7 @@ import { AiOutlinePlusCircle } from 'react-icons/ai';
 export function Header(){
     return(
         <header className={styles.header}>
-            <p>header</p>
+            <p>To Do App with React and Vite</p>
             <form action="" className={styles.newTaskForm}>
                 <input placeholder='add a new task' type='text' />
                 <button>
