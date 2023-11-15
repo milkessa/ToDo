@@ -1,18 +1,15 @@
-import Task from '../models/todo.models.js';
+import Task from "../models/todo.models.js";
+
+export const addTask = async (req, res) => {
+    try {
+        const newTask = new Task(req.body)
+        await newTask.save()
+        res.status(201).send(newTask)
+    } catch(err) {
+        res.status(400).send(err)
+    }
+}
 
 export const getTask = async (req, res) => {
-    const task=await Task.find()
-    res.json(task)
-};
-
-export const saveTask = async (req, res) => {
-    const { text } = req.body;
-
-    Task
-        .create({text})
-        .then((data)=>{
-            console.log("Added Seccessfully");
-            console.log(data);
-            res.send(data)
-        })
-};
+    res.send("Hello")
+}

@@ -1,8 +1,9 @@
-import { Router } from "express"; 
-import { getTask } from "../controllers/todo.controllers.js";
-import { saveTask } from "../controllers/todo.controllers.js";
-const router=Router();
+import express from 'express'
+import { addTask, getTask} from '../controllers/todo.controllers.js';
+
+const router= express.Router();
+
 router.get('/', getTask)
-router.post('/save', saveTask)
+router.post('/', addTask)
 
 export default router;
