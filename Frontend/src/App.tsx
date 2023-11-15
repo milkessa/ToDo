@@ -25,7 +25,7 @@ const App: React.FC = () => {
   return (
     <div>
       <Header onAddTask={addTask} />
-      <Tasks  />
+      <Tasks tasks={tasks} />
     </div>
   );
 }
