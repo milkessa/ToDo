@@ -1,6 +1,6 @@
 import styles from './header.module.css';
 import { AiOutlinePlusCircle } from 'react-icons/ai';
-import React, { useState, ChangeEvent, FormEvent } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 
 interface HeaderProps {
   handleAddTask: (title: string) => void;

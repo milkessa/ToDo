@@ -1,7 +1,7 @@
 import styles from './task.module.css';
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 import { TbTrash } from 'react-icons/tb';
-import React from 'react';
+
 
 interface TaskProps {
   task: {
