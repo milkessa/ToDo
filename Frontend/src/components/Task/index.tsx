@@ -1,21 +1,32 @@
-import styles from './task.module.css'
-import {TbTrash} from 'react-icons/tb'
-import {BiEditAlt} from 'react-icons/bi'
-export function Task(){
-    return (
-        <div className={styles.task}>
-            <button className={styles.checkContainer}>
-                <div />
+import styles from './task.module.css';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
+import { TbTrash } from 'react-icons/tb';
+import React from 'react';
 
-            </button>
-            <p>Submitting the first assignment</p>
-            <button className={styles.deleteButton}>
-                <TbTrash size={20}/>
-            </button>
-            <button className={styles.deleteButton}>
-                <BiEditAlt size={20}/>
-            </button>
+interface TaskProps {
+  task: {
+    id: string;
+    isCompleted: boolean;
+    title: string;
+  };
+  onDelete: (id: string) => void;
+  onComplete: (id: string) => void;
+}
 
-        </div>
-    )
+export function Task({ task, onDelete, onComplete }: TaskProps): JSX.Element {
+  return (
+    <div className={styles.task}>
+      <button className={styles.checkContainer} onClick={() => onComplete(task.id)}>
+        {task.isCompleted ? <BsFillCheckCircleFill /> : <div />}
+      </button>
+
+      <p className={task.isCompleted ? styles.textCompleted : ''}>
+        {task.title}
+      </p>
+
+      <button className={styles.deleteButton} onClick={() => onDelete(task.id)}>
+        <TbTrash size={20} />
+      </button>
+    </div>
+  );
 }

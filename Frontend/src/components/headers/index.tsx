@@ -1,17 +1,19 @@
-import { useState, ChangeEvent, FormEvent } from 'react';
-import { AiOutlinePlusCircle } from 'react-icons/ai';
 import styles from './header.module.css';
+import { AiOutlinePlusCircle } from 'react-icons/ai';
+import React, { useState, ChangeEvent, FormEvent } from 'react';
 
 interface HeaderProps {
-  onAddTask: (taskTitle: string) => void;
+  handleAddTask: (title: string) => void;
 }
 
-export function Header({ onAddTask }: HeaderProps): JSX.Element {
+export function Header({ handleAddTask }: HeaderProps): JSX.Element {
   const [title, setTitle] = useState<string>('');
 
   function handleSubmit(event: FormEvent<HTMLFormElement>): void {
     event.preventDefault();
-    onAddTask(title);
+
+    handleAddTask(title);
+    setTitle('');
   }
 
   function onChangeTitle(event: ChangeEvent<HTMLInputElement>): void {
@@ -20,12 +22,17 @@ export function Header({ onAddTask }: HeaderProps): JSX.Element {
 
   return (
     <header className={styles.header}>
-      <p>To Do App with React and Vite</p>
+      <p>To Do App</p>
+
       <form onSubmit={handleSubmit} className={styles.newTaskForm}>
-        <input placeholder='add a new task' type='text' onChange={onChangeTitle} />
-        <button type='submit'>
-          Create
-          <AiOutlinePlusCircle size={20} />
+        <input
+          placeholder="Add a new task"
+          type="text"
+          onChange={onChangeTitle}
+          value={title}
+        />
+        <button type="submit">
+          Create <AiOutlinePlusCircle size={20} />
         </button>
       </form>
     </header>
